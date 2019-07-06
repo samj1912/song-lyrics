@@ -14,6 +14,7 @@ DATA_URL = "https://github.com/samj1912/song-lyrics/releases/download/Data/word_
 
 ranking_data = {}
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 if not DATA_PATH.exists():
     ranking_data = requests.get(DATA_URL).json()

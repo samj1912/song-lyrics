@@ -56,7 +56,7 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
     chartObj.max = function (fn) {
         return d3.max(chartObj.data, fn);
     };
-    chartObj.yScale = d3.scale.linear().range([chartObj.height, 0]).domain([0, d3.max(chartObj.yFuncts.map(chartObj.max))]);
+    chartObj.yScale = d3.scale.linear().range([chartObj.height, 0]).domain([0, d3.max(chartObj.yFuncts.map(chartObj.max)) * 1.2]);
 
     chartObj.formatAsYear = d3.format("");
 
@@ -89,7 +89,7 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
 
         /* Update the range of the scale with new width/height */
         chartObj.xScale.range([0, chartObj.width]);
-        chartObj.yScale.range([chartObj.height, 0]);
+        chartObj.yScale.range([1, chartObj.height]);
 
         if (!chartObj.svg) { return false; }
 

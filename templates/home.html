@@ -26,9 +26,6 @@
                 </form>
             </div>
             <br />
-            <br />
-            <br />
-            <br />
             <div class="container">
                 <div class="chart-wrapper" id="chart-line1"></div>
             </div>
@@ -48,6 +45,7 @@
     <script src="{{ url_for('static', filename='js/multiline.js') }}"></script>
     <script>
         $("#submitBtn").click(visualize);
+        $(document).ready(visualize);
         $("#submitBtn").submit(visualize);
         function visualize() {
             var values = $("#inputValues").tagsinput("items");
@@ -56,7 +54,7 @@
                 columns[value] = { column: value };
             });
             $.post("/values", { "values": values }, function (data) {
-                var chart = makeLineChart(data.values, 'year', columns, { xAxis: 'Year', yAxis: 'Rank (lower is better)' });
+                var chart = makeLineChart(data.values, 'year', columns, { xAxis: 'Year', yAxis: 'Rank' });
                 $("#chart-line1").empty();
                 chart.bind("#chart-line1");
                 chart.render();
