@@ -4,10 +4,8 @@ from collections import defaultdict
 from pathlib import Path
 
 import requests
-import numpy as np
 
 from flask import Flask, render_template, request, jsonify
-from scipy.interpolate import make_interp_spline
 
 DATA_PATH = Path("word_rankings.json")
 DATA_URL = "https://github.com/samj1912/song-lyrics/releases/download/Data/word_rankings.json"
