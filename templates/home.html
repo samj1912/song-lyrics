@@ -44,6 +44,7 @@
     <script src="{{ url_for('static', filename='js/d3.js') }}"></script>
     <script src="{{ url_for('static', filename='js/multiline.js') }}"></script>
     <script>
+        var maxRank = {{ max_rank }};
         $("#submitBtn").click(visualize);
         $(document).ready(visualize);
         $("#submitBtn").submit(visualize);

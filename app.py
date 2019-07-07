@@ -60,7 +60,7 @@ def get_rankings(word):
 
 @app.route("/", methods=["GET"])
 def home():
-    return render_template("home.html")
+    return render_template("home.html", max_rank=MAX_RANK)
 
 
 @app.route("/values", methods=["GET", "POST"])

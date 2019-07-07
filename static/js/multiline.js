@@ -185,7 +185,12 @@ function makeLineChart(dataset, xName, yObjs, axisLables) {
             minY = chartObj.height;
             for (var y in yObjs) {
                 yObjs[y].tooltip.attr("transform", "translate(" + chartObj.xScale(chartObj.xFunct(d)) + "," + chartObj.yScale(yObjs[y].yFunct(d)) + ")");
-                yObjs[y].tooltip.select("text").text(chartObj.yFormatter(yObjs[y].yFunct(d)));
+                var yVal = chartObj.yFormatter(yObjs[y].yFunct(d));
+                if (yVal !== chartObj.yFormatter(maxRank)) {
+                    yObjs[y].tooltip.select("text").text(yVal);
+                } else {
+                    yObjs[y].tooltip.select("text").text("No data");
+                }
                 minY = Math.min(minY, chartObj.yScale(yObjs[y].yFunct(d)));
             }
 
